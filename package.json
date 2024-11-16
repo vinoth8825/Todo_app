@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/style.css --watch"
+  },
+  "dependencies": {
+    "sortablejs": "^1.15.3"
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <script src="../node_modules/sortablejs/Sortable.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="box-border">
+    <header
+      class="w-full bg-purple-800 text-xl text-center text-white p-4 font-semibold sticky top-0 z-10"
+    >
+      To-Do App
+    </header>
+    <div class="mx-auto w-[600px] my-20">
+      <h3 class="text-2xl text-neutral-800 font-bold text-center">
+        Manage your task <span class="text-neutral-600 text-xl">@Vinoth</span>
+      </h3>
+      <p class="text-center text-neutral-900 mt-2">
+        Add task to manage them quickly
+      </p>
+      <div
+        id="addTaskContainer"
+        class="w-[440px] py-5 px-6 mt-5 rounded-lg border transition hidden border-purple-400 mx-auto bg-white"
+      >
+        <div id="taskDiv" class="flex justify-between gap-4 mt-4">
+          <input
+            type="text"
+            id="taskINput"
+            value=""
+            class="px-5 p-3 w-[88%] border border-neutral-400 focus:ring-2 focus:outline-none focus:border-blue-600 focus:ring-blue-100 rounded-lg"
+            placeholder="enter task"
+          />
+          <input
+            type="datetime-local"
+            class="w-[12%] border p-4 focus:ring-2 border-neutral-400 focus:outline-none focus:border-blue-600 focus:ring-blue-100 rounded-lg"
+            name=""
+            id="dueDateInput"
+          />
+        </div>
+        <button
+          id="addTaskBtn"
+          class="bg-blue-500 px-5 py-2 mx-1 hover:bg-blue-600 text-white mt-4 rounded-lg"
+        >
+          Add Task
+        </button>
+      </div>
+
+      <div id="taskContainer">
+        <!-- <div
+          class="border border-neutral-400 w-[440px] mx-auto p-4 mt-8 rounded-xl bg-white"
+        >
+          <h3 class="text-neutral-800 font-semibold" id="taskName">Task 1</h3>
+          <p class="text-neutral-500 mt-2" id="deadline">12-8-2024</p>
+
+          <div class="flex gap-6 mt-3">
+            <button
+              class="flex items-center text-neutral-400 gap-2 hover:text-green-700 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-check2-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"
+                />
+                <path
+                  d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"
+                />
+              </svg>
+              Mark as Done
+            </button>
+            <button
+              class="flex items-center text-neutral-400 gap-2 hover:text-red-600 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-trash3"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
+                />
+              </svg>
+              Delete
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <button
+      title="Add new task"
+      class="fixed bottom-11 right-11 text-white bg-purple-700 hover:bg-purple-800 transition w-12 shadow-lg flex justify-center items-center rounded-full h-12"
+      id="openTaskBtn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-plus"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+        />
+      </svg>
+    </button>
+
+    <script src="app.js"></script>
+  </body>
+</html>
